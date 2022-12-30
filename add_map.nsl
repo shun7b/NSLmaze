@@ -1,0 +1,213 @@
+#include "macro.inc"
+%i "add_map.inc"
+//%i "div_circit.inc"
+#include "mul_bit.inc"
+//%i "add_map_core.inc"
+module add_map{
+	reg data_out_index_reg[BIT];
+	reg data_out_reg[BIT];
+	reg near_reg[BIT];
+	reg wall_reg;
+	reg org_reg[BIT];
+	reg org_near_reg[BIT];
+	reg sg_reg[3];
+	reg sg_near_reg[3];
+	data_out_index=data_out_index_reg;
+	data_out=data_out_reg;
+	data_near=near_reg;
+	data_org=org_reg;
+	data_org_near=org_near_reg;
+	s_g=sg_reg;
+	s_g_near=sg_near_reg;
+	wall_t_out=wall_reg;
+
+	func add_exe{
+		wire div[3];
+		wire sg_w[2];
+		wire sum_value[BIT+3];
+		wire add_sum_all[BIT-1];
+		wire add_sum_all_2[BIT];
+		mul_bit mul_bit_x[2];
+		wire mods;
+		wire add_bit[BIT+BIT+2];
+		wire add_mul_return[BIT];
+		wire data_out_w[BIT];	
+		wire pull_wall; 
+		near_reg:=up;
+		_display("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,now=%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",moto_org_near,moto_org,sg_up,sg_down,sg_right,sg_left,wall_t_in,moto,up,right,down,left,start,goal,now,data_out,data_out_index,data_near,wall_t_out,data_org,data_org_near,s_g,s_g_near,sg_reg,sg_w);		
+//		data_out_index_reg:=moto;
+		sg_near_reg:=sg_up;
+
+		if((moto_org_near==WALL)&&(moto_org_near1==WALL)&&(moto_org_near2==WALL)&&moto_org_near3==WALL){
+			pull_wall=0b1;
+		}else if((moto_org_near==WALL)&&(moto_org_near1==WALL)&&(moto_org_near2==WALL)){
+			pull_wall=0b1;
+		}else if((moto_org_near1==WALL)&&(moto_org_near2==WALL)&&(moto_org_near3==WALL)){
+			pull_wall=0b1;
+		}else if((moto_org_near==WALL)&&(moto_org_near2==WALL)&&(moto_org_near3==WALL)){
+			pull_wall=0b1;
+		}else if((moto_org_near==WALL)&&(moto_org_near1==WALL)&&(moto_org_near3==WALL)){
+			pull_wall=0b1;
+		}else{
+			pull_wall=0b0;
+		}
+		
+		if((moto_org==WALL)){
+			org_near_reg:=moto_org_near;
+			org_reg:=moto_org;
+			data_out_reg:=(moto);
+			data_out_index_reg:=moto;
+			wall_reg:=wall_t_in;
+			sg_w=0b00;
+			sg_reg:=0b00;
+		}else if(now==goal){
+			org_near_reg:=moto_org_near;
+			org_reg:=moto_org;
+			data_out_reg:=GOAL;
+			data_out_index_reg:=GOAL;
+			wall_reg:=wall_t_in;
+			sg_w=0b010;
+			sg_reg:=0b10;
+		}else if(now==start){
+			org_near_reg:=moto_org_near;
+			org_reg:=moto_org;
+			data_out_reg:=START;
+			data_out_index_reg:=START;
+			sg_reg:=0b01;
+			sg_w=0b001;
+			wall_reg:=wall_t_in;
+		}else if(pull_wall){
+			org_reg:=WALL;
+			org_near_reg:=moto_org_near;
+			wall_reg:=wall_t_in;
+			data_out_reg:=WALL;
+			data_out_index_reg:=WALL;
+			
+			sg_w=0b00;
+			sg_reg:=0b00;
+		}else{
+			org_reg:=moto_org;
+			org_near_reg:=moto_org_near;
+			if((right!=WALL)&&(left!=WALL)&&(up!=WALL)&&(down!=WALL)){
+				sum_value=left+right+up+down;
+				div=3'd4;
+			}else if(((right!=WALL)&&(left!=WALL)&&(up!=WALL))){
+			//	_display("\n%d\n",now);
+				div=3'd3;
+				sum_value=up+right+left;
+			}else if(((right!=WALL)&&(left!=WALL)&&(down!=WALL))){
+			//	_display("\n%d\n",now);
+				div=3'd3;
+				sum_value=down+right+left;
+			}else if(((down!=WALL)&&(left!=WALL)&&(up!=WALL))){
+			//	_display("\n%d\n",now);
+				div=3'd3;
+				sum_value=left+up+down;
+			}else if(((down!=WALL)&&(right!=WALL)&&(up!=WALL))){
+			//	_display("\n%d\n",now);
+				div=3'd3;
+				sum_value=up+down+right;
+			}else if((left!=WALL)&&(right!=WALL)){
+			//	_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=left+right;
+			}else if((up!=WALL)&&(right!=WALL)){
+			//	_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=up+right;
+			}else if((left!=WALL)&&(up!=WALL)){
+			//	_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=left+up;
+			}else if((down!=WALL)&&(left!=WALL)){
+			//_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=down+left;
+			}else if((up!=WALL)&&(down!=WALL)){
+			//	_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=up+down;
+			}else if((down!=WALL)&&(right!=WALL)){
+			//	_display("\n%d\n",now);
+				div=3'd2;
+				sum_value=down+right;
+			}else if(down!=WALL){
+			//	_display("\n%d\n",now);
+				div=3'd1;
+				sum_value=down;
+			}else if(right!=WALL){
+			//	_display("\n%d\n",now);
+				div=3'd1;
+				sum_value=right;
+			}else if(up!=WALL){
+			//	_display("\n%d\n",now);
+				div=3'd1;
+				sum_value=up;
+			}else if(left!=WALL){
+			//	_display("\n%d\n",now);
+				div=3'd1;
+				sum_value=left;
+			}else{
+				div=3'd0;
+				data_out_w=WALL;
+			}	
+			if(div==4){
+				add_sum_all_2=(sum_value)[BIT+1:2];
+				data_out_w=(BIT'(add_sum_all_2))+(BIT'(((sum_value)[1:0])>0));
+			}
+			if(div==3){
+				add_bit=(BIT+BIT+2)'(sum_value);
+				add_mul_return=(mul_bit_x[0].mul_bit_exe((add_bit),((BIT+BIT+2)'(DIV)))[BIT+BIT+1:BIT+2]);
+				mods=((mul_bit_x[1].mul_bit_exe(((BIT+BIT+2)'(add_mul_return)),((BIT+BIT+2)'d3)))<add_bit);
+				data_out_w=((add_mul_return))+(BIT)'(mods);
+			}
+			if(div==2){
+				add_sum_all=(sum_value)[BIT-1:1];
+				_display("add_sum_all%d\n",add_sum_all);
+				data_out_w=(BIT'(add_sum_all))+(BIT'((sum_value)[0]));
+			}
+			if(div==1){
+				data_out_w=sum_value[BIT-1:0];
+      			}
+			if(wall_t_in==0){
+				sg_w=sg_up|sg_down|sg_left|sg_right;
+				sg_reg:=sg_w;
+				if(sg_w==3){
+					wall_reg:=0b1;
+					data_out_reg:=LOAD;
+					data_out_index_reg:=LOAD;
+				}else{
+					wall_reg:=wall_t_in;
+						
+					if((sg_up|sg_down|sg_right|sg_right|sg_left)&&(div==1)){
+						if(moto==WALL){
+							data_out_reg:=LOAD;
+					 		data_out_index_reg:=LOAD;
+						}else{
+							data_out_reg:=data_out_w;
+					 		data_out_index_reg:=moto;
+						}
+					}else if(div==0){
+						data_out_reg:=WALL;
+						data_out_index_reg:=WALL;
+					}else{
+						data_out_reg:=data_out_w;
+					 	data_out_index_reg:=moto;
+					}
+				}
+			}else{
+				wall_reg:=wall_t_in;
+				sg_w=2'b0;
+				sg_reg:=2'b0;
+				if(div==1||div==0){
+					data_out_reg:=WALL;
+					data_out_index_reg:=WALL;
+				}else{
+					data_out_reg:=data_out_w;
+					data_out_index_reg:=moto;
+				}
+			}
+				
+		}
+	}
+}

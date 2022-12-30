@@ -1,0 +1,63 @@
+declare seach{
+    input data_in17[BIT],data_in18[BIT],data_in19[BIT],data_in20[BIT],data_in21[BIT],data_in22[BIT],data_in23[BIT],data_in24[BIT],data_in25[BIT],data_in26[BIT],data_in27[BIT],data_in28[BIT],data_in29[BIT],data_in30[BIT],
+data_in33[BIT],data_in34[BIT],data_in35[BIT],data_in36[BIT],data_in37[BIT],data_in38[BIT],data_in39[BIT],data_in40[BIT],data_in41[BIT],data_in42[BIT],data_in43[BIT],data_in44[BIT],data_in45[BIT],data_in46[BIT],
+data_in49[BIT],data_in50[BIT],data_in51[BIT],data_in52[BIT],data_in53[BIT],data_in54[BIT],data_in55[BIT],data_in56[BIT],data_in57[BIT],data_in58[BIT],data_in59[BIT],data_in60[BIT],data_in61[BIT],data_in62[BIT],
+data_in65[BIT],data_in66[BIT],data_in67[BIT],data_in68[BIT],data_in69[BIT],data_in70[BIT],data_in71[BIT],data_in72[BIT],data_in73[BIT],data_in74[BIT],data_in75[BIT],data_in76[BIT],data_in77[BIT],data_in78[BIT],
+data_in81[BIT],data_in82[BIT],data_in83[BIT],data_in84[BIT],data_in85[BIT],data_in86[BIT],data_in87[BIT],data_in88[BIT],data_in89[BIT],data_in90[BIT],data_in91[BIT],data_in92[BIT],data_in93[BIT],data_in94[BIT],
+data_in97[BIT],data_in98[BIT],data_in99[BIT],data_in100[BIT],data_in101[BIT],data_in102[BIT],data_in103[BIT],data_in104[BIT],data_in105[BIT],data_in106[BIT],data_in107[BIT],data_in108[BIT],data_in109[BIT],data_in110[BIT],
+data_in113[BIT],data_in114[BIT],data_in115[BIT],data_in116[BIT],data_in117[BIT],data_in118[BIT],data_in119[BIT],data_in120[BIT],data_in121[BIT],data_in122[BIT],data_in123[BIT],data_in124[BIT],data_in125[BIT],data_in126[BIT],
+data_in129[BIT],data_in130[BIT],data_in131[BIT],data_in132[BIT],data_in133[BIT],data_in134[BIT],data_in135[BIT],data_in136[BIT],data_in137[BIT],data_in138[BIT],data_in139[BIT],data_in140[BIT],data_in141[BIT],data_in142[BIT],
+data_in145[BIT],data_in146[BIT],data_in147[BIT],data_in148[BIT],data_in149[BIT],data_in150[BIT],data_in151[BIT],data_in152[BIT],data_in153[BIT],data_in154[BIT],data_in155[BIT],data_in156[BIT],data_in157[BIT],data_in158[BIT],
+data_in161[BIT],data_in162[BIT],data_in163[BIT],data_in164[BIT],data_in165[BIT],data_in166[BIT],data_in167[BIT],data_in168[BIT],data_in169[BIT],data_in170[BIT],data_in171[BIT],data_in172[BIT],data_in173[BIT],data_in174[BIT],
+data_in177[BIT],data_in178[BIT],data_in179[BIT],data_in180[BIT],data_in181[BIT],data_in182[BIT],data_in183[BIT],data_in184[BIT],data_in185[BIT],data_in186[BIT],data_in187[BIT],data_in188[BIT],data_in189[BIT],data_in190[BIT],
+data_in193[BIT],data_in194[BIT],data_in195[BIT],data_in196[BIT],data_in197[BIT],data_in198[BIT],data_in199[BIT],data_in200[BIT],data_in201[BIT],data_in202[BIT],data_in203[BIT],data_in204[BIT],data_in205[BIT],data_in206[BIT],
+data_in209[BIT],data_in210[BIT],data_in211[BIT],data_in212[BIT],data_in213[BIT],data_in214[BIT],data_in215[BIT],data_in216[BIT],data_in217[BIT],data_in218[BIT],data_in219[BIT],data_in220[BIT],data_in221[BIT],data_in222[BIT],
+data_in225[BIT],data_in226[BIT],data_in227[BIT],data_in228[BIT],data_in229[BIT],data_in230[BIT],data_in231[BIT],data_in232[BIT],data_in233[BIT],data_in234[BIT],data_in235[BIT],data_in236[BIT],data_in237[BIT],data_in238[BIT];
+    
+    output data_out17[BIT],data_out18[BIT],data_out19[BIT],data_out20[BIT],data_out21[BIT],data_out22[BIT],data_out23[BIT],data_out24[BIT],data_out25[BIT],data_out26[BIT],data_out27[BIT],data_out28[BIT],data_out29[BIT],data_out30[BIT],
+data_out33[BIT],data_out34[BIT],data_out35[BIT],data_out36[BIT],data_out37[BIT],data_out38[BIT],data_out39[BIT],data_out40[BIT],data_out41[BIT],data_out42[BIT],data_out43[BIT],data_out44[BIT],data_out45[BIT],data_out46[BIT],
+data_out49[BIT],data_out50[BIT],data_out51[BIT],data_out52[BIT],data_out53[BIT],data_out54[BIT],data_out55[BIT],data_out56[BIT],data_out57[BIT],data_out58[BIT],data_out59[BIT],data_out60[BIT],data_out61[BIT],data_out62[BIT],
+data_out65[BIT],data_out66[BIT],data_out67[BIT],data_out68[BIT],data_out69[BIT],data_out70[BIT],data_out71[BIT],data_out72[BIT],data_out73[BIT],data_out74[BIT],data_out75[BIT],data_out76[BIT],data_out77[BIT],data_out78[BIT],
+data_out81[BIT],data_out82[BIT],data_out83[BIT],data_out84[BIT],data_out85[BIT],data_out86[BIT],data_out87[BIT],data_out88[BIT],data_out89[BIT],data_out90[BIT],data_out91[BIT],data_out92[BIT],data_out93[BIT],data_out94[BIT],
+data_out97[BIT],data_out98[BIT],data_out99[BIT],data_out100[BIT],data_out101[BIT],data_out102[BIT],data_out103[BIT],data_out104[BIT],data_out105[BIT],data_out106[BIT],data_out107[BIT],data_out108[BIT],data_out109[BIT],data_out110[BIT],
+data_out113[BIT],data_out114[BIT],data_out115[BIT],data_out116[BIT],data_out117[BIT],data_out118[BIT],data_out119[BIT],data_out120[BIT],data_out121[BIT],data_out122[BIT],data_out123[BIT],data_out124[BIT],data_out125[BIT],data_out126[BIT],
+data_out129[BIT],data_out130[BIT],data_out131[BIT],data_out132[BIT],data_out133[BIT],data_out134[BIT],data_out135[BIT],data_out136[BIT],data_out137[BIT],data_out138[BIT],data_out139[BIT],data_out140[BIT],data_out141[BIT],data_out142[BIT],
+data_out145[BIT],data_out146[BIT],data_out147[BIT],data_out148[BIT],data_out149[BIT],data_out150[BIT],data_out151[BIT],data_out152[BIT],data_out153[BIT],data_out154[BIT],data_out155[BIT],data_out156[BIT],data_out157[BIT],data_out158[BIT],
+data_out161[BIT],data_out162[BIT],data_out163[BIT],data_out164[BIT],data_out165[BIT],data_out166[BIT],data_out167[BIT],data_out168[BIT],data_out169[BIT],data_out170[BIT],data_out171[BIT],data_out172[BIT],data_out173[BIT],data_out174[BIT],
+data_out177[BIT],data_out178[BIT],data_out179[BIT],data_out180[BIT],data_out181[BIT],data_out182[BIT],data_out183[BIT],data_out184[BIT],data_out185[BIT],data_out186[BIT],data_out187[BIT],data_out188[BIT],data_out189[BIT],data_out190[BIT],
+data_out193[BIT],data_out194[BIT],data_out195[BIT],data_out196[BIT],data_out197[BIT],data_out198[BIT],data_out199[BIT],data_out200[BIT],data_out201[BIT],data_out202[BIT],data_out203[BIT],data_out204[BIT],data_out205[BIT],data_out206[BIT],
+data_out209[BIT],data_out210[BIT],data_out211[BIT],data_out212[BIT],data_out213[BIT],data_out214[BIT],data_out215[BIT],data_out216[BIT],data_out217[BIT],data_out218[BIT],data_out219[BIT],data_out220[BIT],data_out221[BIT],data_out222[BIT],
+data_out225[BIT],data_out226[BIT],data_out227[BIT],data_out228[BIT],data_out229[BIT],data_out230[BIT],data_out231[BIT],data_out232[BIT],data_out233[BIT],data_out234[BIT],data_out235[BIT],data_out236[BIT],data_out237[BIT],data_out238[BIT];
+    output startplot[BIT],goalplot[BIT];
+func_in in_do(data_in17,data_in18,data_in19,data_in20,data_in21,data_in22,data_in23,data_in24,data_in25,data_in26,data_in27,data_in28,data_in29,data_in30,
+data_in33,data_in34,data_in35,data_in36,data_in37,data_in38,data_in39,data_in40,data_in41,data_in42,data_in43,data_in44,data_in45,data_in46,
+data_in49,data_in50,data_in51,data_in52,data_in53,data_in54,data_in55,data_in56,data_in57,data_in58,data_in59,data_in60,data_in61,data_in62,
+data_in65,data_in66,data_in67,data_in68,data_in69,data_in70,data_in71,data_in72,data_in73,data_in74,data_in75,data_in76,data_in77,data_in78,
+data_in81,data_in82,data_in83,data_in84,data_in85,data_in86,data_in87,data_in88,data_in89,data_in90,data_in91,data_in92,data_in93,data_in94,
+data_in97,data_in98,data_in99,data_in100,data_in101,data_in102,data_in103,data_in104,data_in105,data_in106,data_in107,data_in108,data_in109,data_in110,
+data_in113,data_in114,data_in115,data_in116,data_in117,data_in118,data_in119,data_in120,data_in121,data_in122,data_in123,data_in124,data_in125,data_in126,
+data_in129,data_in130,data_in131,data_in132,data_in133,data_in134,data_in135,data_in136,data_in137,data_in138,data_in139,data_in140,data_in141,data_in142,
+data_in145,data_in146,data_in147,data_in148,data_in149,data_in150,data_in151,data_in152,data_in153,data_in154,data_in155,data_in156,data_in157,data_in158,
+data_in161,data_in162,data_in163,data_in164,data_in165,data_in166,data_in167,data_in168,data_in169,data_in170,data_in171,data_in172,data_in173,data_in174,
+data_in177,data_in178,data_in179,data_in180,data_in181,data_in182,data_in183,data_in184,data_in185,data_in186,data_in187,data_in188,data_in189,data_in190,
+data_in193,data_in194,data_in195,data_in196,data_in197,data_in198,data_in199,data_in200,data_in201,data_in202,data_in203,data_in204,data_in205,data_in206,
+data_in209,data_in210,data_in211,data_in212,data_in213,data_in214,data_in215,data_in216,data_in217,data_in218,data_in219,data_in220,data_in221,data_in222,
+data_in225,data_in226,data_in227,data_in228,data_in229,data_in230,data_in231,data_in232,data_in233,data_in234,data_in235,data_in236,data_in237,data_in238
+    );
+    func_out out_do();
+    func_out out_data(data_out17,data_out18,data_out19,data_out20,data_out21,data_out22,data_out23,data_out24,data_out25,data_out26,data_out27,data_out28,data_out29,data_out30,
+data_out33,data_out34,data_out35,data_out36,data_out37,data_out38,data_out39,data_out40,data_out41,data_out42,data_out43,data_out44,data_out45,data_out46,
+data_out49,data_out50,data_out51,data_out52,data_out53,data_out54,data_out55,data_out56,data_out57,data_out58,data_out59,data_out60,data_out61,data_out62,
+data_out65,data_out66,data_out67,data_out68,data_out69,data_out70,data_out71,data_out72,data_out73,data_out74,data_out75,data_out76,data_out77,data_out78,
+data_out81,data_out82,data_out83,data_out84,data_out85,data_out86,data_out87,data_out88,data_out89,data_out90,data_out91,data_out92,data_out93,data_out94,
+data_out97,data_out98,data_out99,data_out100,data_out101,data_out102,data_out103,data_out104,data_out105,data_out106,data_out107,data_out108,data_out109,data_out110,
+data_out113,data_out114,data_out115,data_out116,data_out117,data_out118,data_out119,data_out120,data_out121,data_out122,data_out123,data_out124,data_out125,data_out126,
+data_out129,data_out130,data_out131,data_out132,data_out133,data_out134,data_out135,data_out136,data_out137,data_out138,data_out139,data_out140,data_out141,data_out142,
+data_out145,data_out146,data_out147,data_out148,data_out149,data_out150,data_out151,data_out152,data_out153,data_out154,data_out155,data_out156,data_out157,data_out158,
+data_out161,data_out162,data_out163,data_out164,data_out165,data_out166,data_out167,data_out168,data_out169,data_out170,data_out171,data_out172,data_out173,data_out174,
+data_out177,data_out178,data_out179,data_out180,data_out181,data_out182,data_out183,data_out184,data_out185,data_out186,data_out187,data_out188,data_out189,data_out190,
+data_out193,data_out194,data_out195,data_out196,data_out197,data_out198,data_out199,data_out200,data_out201,data_out202,data_out203,data_out204,data_out205,data_out206,
+data_out209,data_out210,data_out211,data_out212,data_out213,data_out214,data_out215,data_out216,data_out217,data_out218,data_out219,data_out220,data_out221,data_out222,
+data_out225,data_out226,data_out227,data_out228,data_out229,data_out230,data_out231,data_out232,data_out233,data_out234,data_out235,data_out236,data_out237,data_out238,startplot,goalplot);
+
+} 
